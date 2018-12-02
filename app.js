@@ -149,7 +149,6 @@ const ItemCtrl = (function() {
 
     clearAllItems: function() {
       data.items = [];
-      localStorage.clear();
     }
   };
 })();
@@ -420,6 +419,8 @@ const App = (function(ItemCtrl, StorageCtrl, UICtrl) {
     UICtrl.removeListItems();
     const totalCalories = ItemCtrl.getTotalCalories();
     UICtrl.updateTotalCalories(totalCalories);
+    
+    localStorage.removeItem('items');
     UICtrl.hideList();
 
     e.preventDefault();
